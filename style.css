@@ -5,6 +5,22 @@ body {
     background-repeat: no-repeat;
 }
 
+.mainFontStyle1 {
+    font-family: Honk;
+    font-size: 10em;
+}
+
+.mainFontStyle2 {
+    font-family: Protest Revolution;
+    color: white;
+}
+
+.mainFontStyle3 {
+    font-family: Protest Guerilla;
+    font-weight: bold;
+    color: white;
+}
+
 #moonButton {
     display: none;
 }

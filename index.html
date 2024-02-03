@@ -3,111 +3,136 @@
 
 <head>
     <title>Moon Miner</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Honk&family=Protest+Guerrilla&family=Protest+Revolution&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css">
 </head>
 
 <body>
-    <header class="container-fluid mt-2 p-0 text-center text-danger">
-        <h1>Moon Miners</h1>
+    <header class="container-fluid mt-2 p-0 text-center text-danger ">
+        <h1 class="mainFontStyle1">Moon Miners</h1>
     </header>
     <main class="container-fluid">
-        <div class="row align-content-center justify-content-center" style="height: 70vh;">
-            <div class="row">
-
-            </div>
+        <div class="row align-content-center justify-content-center" style="height: 35vh;">
             <div class="col-12 -d-flex text-center">
                 <input type="checkbox" id="moonButton">
                 <label class="btn rounded-circle" for="btnContorl"><img onclick="mineMoon()" class="rounded-circle"
                         type="button" src="assets/moon.png" alt="Moon" style="height: 15em;"></label>
             </div>
-            <div class="col-3  justify-content-center">
-                <h2 class="text-black bg-white rounded p-2 mt-5">Moon Rocks: <span id="moonRocks"></span></h2>
+        </div>
+        <div class="row justify-content-center align-content-center m-0 p-0 ">
+            <div class="col-3 mt-3 pt-3 bg-danger align-content-center ">
+                <h5 class="bg-black rounded border border-primary p-2 mt-0 mainFontStyle3">Rocks Per Click: <br><span
+                        id="rocksPerClick"></span>
+                </h5>
+            </div>
+            <div class="col-3 m-0 pt-3  bg-danger rounded-top">
+                <h2 class="bg-black rounded border border-primary p-2 mt-0 mainFontStyle3">Moon Rocks: <span
+                        id="moonRocks"></span>
+                </h2>
+            </div>
+            <div class="col-3 mt-3 pt-3 bg-danger">
+                <h5 class="bg-black rounded border border-primary p-2 mt-0 mainFontStyle3">Moon Rocks: <span
+                        id="moonRocks"></span>
+                </h5>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-5 m-0 p-2 bg-danger rounded-start">
+
+        </div>
+        <div class="row justify-content-center mainFontStyle2">
+            <div class="col-5 m-0 p-2 bg-danger rounded-start ">
                 <div class="row p-2 ">
 
-                    <div class="col-6 ms-2 p-0 d-flex  bg-danger text white ">
-                        <p class="bg-black text-white rounded p-1">Click Upgrades</p>
+                    <div class="col-6 ms-2 p-0 d-flex ">
+                        <h4 class=" rounded text-bold p-1">Click Upgrades</h4>
                     </div>
 
-                    <div class="col-5 ms-2 p-0 d-flex  bg-danger text white rounded-top-left">
-                        <p class="bg-black text-white rounded p-1">Automatic Upgrades</p>
+                    <div class="col-5 ms-2 p-0 d-flex rounded-top-left">
+                        <h4 class="rounded text-bold p-1">Automatic Upgrades</h4>
                     </div>
 
                     <div class="col-6 my-1"><button onclick="buyShovels()"
-                            class="btn btn-primary bg-black p-2 ml-3">Shovel</button></div>
+                            class="btn btn-primary bg-black p-2 ml-3">Shovel(Price: <span
+                                id="shovelPrice"></span>)</button></div>
 
-                    <div class="col-6 my-1"><button class="btn btn-primary bg-black p-2 ml-3">Rover</button></div>
+                    <div class="col-6 my-1"><button onclick="buyRover()"
+                            class="btn btn-primary bg-black p-2 ml-3">Rover(Price: <span
+                                id="roverPrice"></span>)</button></div>
 
                     <div class="col-6 my-1"><button onclick="buyPickaxe()"
-                            class="btn btn-primary bg-black  p-2 ml-3">Pickaxe</button></div>
+                            class="btn btn-primary bg-black  p-2 ml-3">Pickaxe(Price: <span
+                                id="pickaxePrice">0</span>)</button></div>
 
-                    <div class="col-6 my-1"><button class="btn btn-primary bg-black p-2 ml-3">Bulldozer</button></div>
+                    <div class="col-6 my-1"><button onclick="buyBullDozer()"
+                            class="btn btn-primary bg-black p-2 ml-3">Bulldozer(Price: <span
+                                id="bulldozerPrice"></span>)</button></div>
 
                 </div>
             </div>
-            <div class="col-5 m-0 p-2 bg-danger rounded-end">
+            <div class="col-5 m-0 p-2 bg-danger rounded-end ">
                 <div class="row p-2 ">
 
-                    <div class="col-6 d-flex mb-2 bg-danger text white ">
-                        <p class="bg-black text-white rounded p-1">Click Stats</p>
+                    <div class="col-6 d-flex mb-2 text white ">
+                        <h4 class="rounded p-1">Click Stats</h4>
                     </div>
 
-                    <div class="col-6 d-flex mb-2 bg-danger text white rounded-top-left">
-                        <p class="bg-black text-white rounded p-1">Automatic Stats</p>
+                    <div class="col-6 d-flex mb-2 text white rounded-top-left">
+                        <h4 class="rounded p-1">Automatic Stats</h4>
                     </div>
                     <!-- NOTE Shovels -->
-                    <div class="col-6 d-flex my-1">
+                    <div class="col-6 d-flex my-1 text-white">
                         <p>
-                            <span class="bg-black text-white rounded border border-primary p-2">0</span>
-                            <span id="shovels"></span> Shovels
+                            <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                    id="shovels">0</span></span> Shovels
                         </p>
                         <p>
                             <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
-                                class="bg-black text-white rounded border border-primary p-2">0</span>
+                                class="bg-black rounded border border-primary p-2">0</span>
                         </p>
                     </div>
                     <!-- NOTE Rovers -->
-                    <div class="col-6 d-flex my-1">
+                    <div class="col-6 d-flex my-1 text-white">
                         <p>
-                            <span id="rovers" class="bg-black text-white rounded border border-primary p-2">0</span>
+                            <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                    id="rovers">0</span></span>
                             Rovers
                         </p>
                         <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
-                                class="bg-black text-white rounded border border-primary p-2">0</span>
+                            <i class="mdi mdi-arrow-right-thick"></i><span id="roversXRocks"
+                                class="bg-black rounded border border-primary p-2">0</span>
                         </p>
                     </div>
                     <!-- NOTE Pickaxes -->
-                    <div class="col-6 d-flex my-1">
+                    <div class="col-6 d-flex my-1 text-white">
                         <p>
-                            <span class="bg-black text-white rounded border border-primary p-2">0</span>
-                            <span id="shovels">0</span> Shovels
+                            <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                    id="pickaxes">0</span></span>
+                            <span></span> Pickaxes
                         </p>
                         <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
-                                class="bg-black text-white rounded border border-primary p-2">0</span>
+                            <i class="mdi mdi-arrow-right-thick"></i><span id="pickaxesXRocks"
+                                class="bg-black rounded border border-primary p-2">0</span>
                         </p>
                     </div>
                     <!-- NOTE Bulldozers -->
-                    <div class="col-6 d-flex my-1">
+                    <div class="col-6 d-flex my-1 text-white">
                         <p>
-                            <span id="bulldozers" class="bg-black text-white rounded border border-primary p-2">0</span>
-                            <span></span> Shovels
+                            <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                    id="bulldozers">0</span></span>
+                            </span> Bulldozers
                         </p>
                         <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
-                                class="bg-black text-white rounded border border-primary p-2">0</span>
+                            <i class="mdi mdi-arrow-right-thick"></i><span id="bulldozersXRocks"
+                                class="bg-black rounded border border-primary p-2">0</span>
                         </p>
                     </div>
 
