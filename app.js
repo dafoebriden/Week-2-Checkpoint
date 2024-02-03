@@ -31,46 +31,46 @@ let automaticUpgrades = [
 ]
 
 
-
-
-
-
-function buyClickUpgrades() {
-    clickUpgrades.forEach(upgrade => {
-        if (moonRocksTotal >= upgrade.price) {
-            moonRocksTotal -= upgrade.price
-            upgrade.quantity++
-            upgrade.price *= 1.25
-            upgrade.price = Math.floor(upgrade.price)
-            document.getElementById(`${upgrade.name}s`).innerHTML = (upgrade.quantity)
-            document.getElementById(`${upgrade.name}sXRocks`).innerHTML = (upgrade.quantity * upgrade.multiplier)
-            updatePage()
-        }
-        else {
-            alert(`Sorry Dude, you don't have enough resources 😒`)
-        }
-
-    })
+function sweetAlert() {
+    Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Sorry Dude, you don't have enough resources 😒",
+        showConfirmButton: false,
+    });
 }
 
-
-
-// function buyPickaxe() {
-//     const pickaxe = clickUpgrades.find(upgrade => upgrade.name == 'pickaxe')
-//     if (moonRocksTotal >= pickaxe.price) {
-//         moonRocksTotal -= pickaxe.price
-//         pickaxe.quantity++
-//         pickaxe.price *= 1.25
-//         pickaxe.price = Math.floor(pickaxe.price)
-//     }
-//     else {
-//         alert(`Sorry Dude, you don't have enough resources 😒`)
-//     }
-//     document.getElementById('pickaxes').innerHTML = (pickaxe.quantity)
-//     document.getElementById('pickaxesXRocks').innerHTML = (pickaxe.quantity * pickaxe.multiplier)
-//     updatePage()
-// }
-
+// NOTE Purchase upgrades
+function buyShovel() {
+    const shovel = clickUpgrades.find(upgrade => upgrade.name == 'shovel')
+    if (moonRocksTotal >= shovel.price) {
+        moonRocksTotal -= shovel.price
+        shovel.quantity++
+        shovel.price *= 1.25
+        shovel.price = Math.floor(shovel.price)
+    }
+    else {
+        sweetAlert()
+    }
+    document.getElementById('shovels').innerHTML = (shovel.quantity)
+    document.getElementById('shovelsXRocks').innerHTML = (shovel.quantity * shovel.multiplier)
+    updatePage()
+}
+function buyPickaxe() {
+    const pickaxe = clickUpgrades.find(upgrade => upgrade.name == 'pickaxe')
+    if (moonRocksTotal >= pickaxe.price) {
+        moonRocksTotal -= pickaxe.price
+        pickaxe.quantity++
+        pickaxe.price *= 1.25
+        pickaxe.price = Math.floor(pickaxe.price)
+    }
+    else {
+        sweetAlert()
+    }
+    document.getElementById('pickaxes').innerHTML = (pickaxe.quantity)
+    document.getElementById('pickaxesXRocks').innerHTML = (pickaxe.quantity * pickaxe.multiplier)
+    updatePage()
+}
 function buyRover() {
     const rover = automaticUpgrades.find(upgrade => upgrade.name == 'rover')
     if (moonRocksTotal >= rover.price) {
@@ -80,13 +80,12 @@ function buyRover() {
         rover.price = Math.floor(rover.price)
     }
     else {
-        alert(`Sorry Dude, you don't have enough resources 😒`)
+        sweetAlert()
     }
     document.getElementById('rovers').innerHTML = (rover.quantity)
     document.getElementById('roversXRocks').innerHTML = (rover.quantity * rover.multiplier)
     updatePage()
 }
-
 function buyBullDozer() {
     const bulldozer = automaticUpgrades.find(upgrade => upgrade.name == 'bulldozer')
     if (moonRocksTotal >= bulldozer.price) {
@@ -96,28 +95,29 @@ function buyBullDozer() {
         bulldozer.price = Math.floor(bulldozer.price)
     }
     else {
-        alert(`Sorry Dude, you don't have enough resources 😒`)
+        sweetAlert()
     }
     document.getElementById('bullDosers').innerHTML = (bulldozer.quantity)
     document.getElementById('bullDosersXRocks').innerHTML = (bulldozer.quantity * bulldozer.multiplier)
     updatePage()
 }
 
-function mineMoon() {
-    moonRocksTotal++
-    callClickUpgradesMultiplier()
-    updatePage()
-}
-
-
-function callClickUpgradesMultiplier() {
+// NOTE Rocks for clicking
+function callClickUpgrades() {
     clickUpgrades.forEach(upgrade => {
         moonRocksTotal += upgrade.quantity * upgrade.multiplier
 
     });
     updatePage()
 }
+function mineMoon() {
+    moonRocksTotal++
+    callClickUpgrades()
+    updatePage()
+}
 
+
+// NOTE Rocks for Automatic upgrades
 function callAutomaticUpgradeMultiplier() {
     automaticUpgrades.forEach(upgrade => {
         moonRocksTotal += upgrade.quantity * upgrade.multiplier
@@ -125,7 +125,7 @@ function callAutomaticUpgradeMultiplier() {
     updatePage()
 }
 
-
+// NOTE Updating the screen
 function logUpgradePrices() {
     clickUpgrades.forEach(upgrade => {
         document.getElementById(`${upgrade.name}Price`).innerHTML = Math.floor(upgrade.price)
@@ -143,5 +143,8 @@ function updatePage() {
     updateMoonRocksTotal()
     logUpgradePrices()
 }
+
+
+
 updatePage()
 setInterval(callAutomaticUpgradeMultiplier, 3000)
