@@ -18,29 +18,28 @@
 </head>
 
 <body>
-    <header class="container-fluid mt-2 p-0 text-center text-danger ">
-        <h1 class="mainFontStyle1">Moon Miners</h1>
+    <header class="container-fluid mt-2 p-0 text-center">
+        <h1 class="mainFontStyle1" style="font-size: 6em;">Moon Miners</h1>
     </header>
-    <main class="container-fluid">
+    <main class="container-fluid mainFontStyle2">
         <div class="row align-content-center justify-content-center" style="height: 35vh;">
             <div class="col-12 -d-flex text-center">
                 <img onclick="mineMoon()" class="rounded-circle moonButton" type="button" src="assets/moon.png"
-                    alt="Moon" style="width: 15em;">
+                    alt="Moon" style="width: 20em;">
             </div>
         </div>
         <div class=" row justify-content-center align-content-center m-0 p-0 ">
-            <div class=" col-3 mt-3 pt-3 bg-danger align-content-center ">
-                <h5 class=" bg-black rounded border border-primary p-2 mt-0 mainFontStyle2">Moon Rocks Per Click: <span
+            <div class=" col-3 mt-3 pt-3 bg-main align-content-center ">
+                <h5 class=" bg-black rounded border border-primary p-2 mt-0">Moon Rocks Per Click: <span
                         id="rocksPerClick"></span>
                 </h5>
             </div>
-            <div class="col-3 m-0 pt-3  bg-danger rounded-top">
-                <h2 class="bg-black rounded border border-primary p-2 mt-0 mainFontStyle2">Moon Rocks: <span
-                        id="moonRocks"></span>
+            <div class="col-3 m-0 pt-3  bg-main rounded-top">
+                <h2 class="bg-black rounded border border-primary p-2 mt-0">Moon Rocks: <span id="moonRocks"></span>
                 </h2>
             </div>
-            <div class="col-3 mt-3 pt-3 bg-danger">
-                <h5 class="bg-black rounded border border-primary p-2 mt-0 mainFontStyle2">Moon Rocks Per 3s: <span
+            <div class="col-3 mt-3 pt-3 bg-main">
+                <h5 class="bg-black rounded border border-primary p-2 mt-0">Moon Rocks Per 3s: <span
                         id="rocksPer3s"></span>
                 </h5>
             </div>
@@ -48,47 +47,47 @@
 
         </div>
         <div class="row justify-content-center mainFontStyle2">
-            <div class="col-5 m-0 p-2 bg-danger rounded-start ">
+            <div class="col-5 m-0 p-2 bg-main rounded-start ">
                 <div class="row p-2 ">
 
                     <div class="col-6 ms-2 p-0 d-flex ">
-                        <h4 class=" rounded text-bold p-1">Click Upgrades</h4>
+                        <h4 class=" rounded p-1">Click Upgrades</h4>
                     </div>
 
                     <div class="col-5 ms-2 p-0 d-flex rounded-top-left">
-                        <h4 class="rounded text-bold p-1">Automatic Upgrades</h4>
+                        <h4 class="rounded p-1">Automatic Upgrades</h4>
                     </div>
 
                     <div class="col-6 my-1"><button onclick="buyShovel()"
-                            class="btn btn-primary bg-black p-2 ml-3">Shovel(Price: <span
+                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Shovel (Price: <span
                                 id="shovelPrice"></span>)</button></div>
 
                     <div class="col-6 my-1"><button onclick="buyRover()"
-                            class="btn btn-primary bg-black p-2 ml-3">Rover(Price: <span
-                                id="roverPrice"></span>)</button></div>
+                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Rover
+                            (Price: <span id="roverPrice"></span>)</button></div>
 
                     <div class="col-6 my-1"><button onclick="buyPickaxe()"
-                            class="btn btn-primary bg-black  p-2 ml-3">Pickaxe(Price: <span
+                            class="btn btn-primary bg-black  p-2 ml-3 mainFontStyle2">Pickaxe (Price: <span
                                 id="pickaxePrice">0</span>)</button></div>
 
                     <div class="col-6 my-1"><button onclick="buyBullDozer()"
-                            class="btn btn-primary bg-black p-2 ml-3">Bulldozer(Price: <span
+                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Bulldozer (Price: <span
                                 id="bulldozerPrice"></span>)</button></div>
 
                 </div>
             </div>
-            <div class="col-5 m-0 p-2 bg-danger rounded-end ">
+            <div class="col-5 m-0 p-2 bg-main rounded-end mainFontStyle2">
                 <div class="row p-2 ">
 
-                    <div class="col-6 d-flex mb-2 text white ">
+                    <div class="col-6 d-flex mb-2">
                         <h4 class="rounded p-1">Click Stats</h4>
                     </div>
 
-                    <div class="col-6 d-flex mb-2 text white rounded-top-left">
+                    <div class="col-6 d-flex mb-2 rounded-top-left">
                         <h4 class="rounded p-1">Automatic Stats</h4>
                     </div>
                     <!-- NOTE Shovels -->
-                    <div class="col-6 d-flex my-1 text-white">
+                    <div class="col-6 d-flex my-1">
                         <p>
                             <span class="bg-black rounded border border-primary p-2">Qty: <span
                                     id="shovels">0</span></span> Shovels
@@ -99,7 +98,7 @@
                         </p>
                     </div>
                     <!-- NOTE Rovers -->
-                    <div class="col-6 d-flex my-1 text-white">
+                    <div class="col-6 d-flex my-1">
                         <p>
                             <span class="bg-black rounded border border-primary p-2">Qty: <span
                                     id="rovers">0</span></span>
@@ -111,7 +110,7 @@
                         </p>
                     </div>
                     <!-- NOTE Pickaxes -->
-                    <div class="col-6 d-flex my-1 text-white">
+                    <div class="col-6 d-flex my-1">
                         <p>
                             <span class="bg-black rounded border border-primary p-2">Qty: <span
                                     id="pickaxes">0</span></span>
@@ -123,7 +122,7 @@
                         </p>
                     </div>
                     <!-- NOTE Bulldozers -->
-                    <div class="col-6 d-flex my-1 text-white">
+                    <div class="col-6 d-flex my-1">
                         <p>
                             <span class="bg-black rounded border border-primary p-2">Qty: <span
                                     id="bullDozers">0</span></span>
