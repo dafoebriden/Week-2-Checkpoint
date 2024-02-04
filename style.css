@@ -21,10 +21,8 @@ body {
     color: white;
 }
 
-#moonButton {
-    display: none;
-}
 
-#moonButton:checked+label>img {
-    height: 14em;
+
+.moonButton:hover:active {
+    transform: scale(.95);
 }
