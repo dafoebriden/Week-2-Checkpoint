@@ -31,14 +31,15 @@ let automaticUpgrades = [
 ]
 
 
-function sweetAlert() {
-    Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Sorry Dude, you don't have enough resources 😒",
-        showConfirmButton: false,
-    });
-}
+// function sweetAlert() {
+//     Swal.fire({
+//         position: "center",
+//         icon: "error",
+//         title: "Sorry Dude, you don't have enough resources 😒",
+//         showConfirmButton: false,
+//     });
+// }
+
 
 // NOTE Purchase upgrades
 function buyShovel() {
@@ -48,13 +49,19 @@ function buyShovel() {
         shovel.quantity++
         shovel.price *= 1.25
         shovel.price = Math.floor(shovel.price)
+        document.getElementById('shovels').innerHTML = (shovel.quantity)
+        document.getElementById('shovelsXRocks').innerHTML = (shovel.quantity * shovel.multiplier)
+        updatePage()
     }
     else {
-        sweetAlert()
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
     }
-    document.getElementById('shovels').innerHTML = (shovel.quantity)
-    document.getElementById('shovelsXRocks').innerHTML = (shovel.quantity * shovel.multiplier)
-    updatePage()
+
 }
 function buyPickaxe() {
     const pickaxe = clickUpgrades.find(upgrade => upgrade.name == 'pickaxe')
@@ -63,13 +70,19 @@ function buyPickaxe() {
         pickaxe.quantity++
         pickaxe.price *= 1.25
         pickaxe.price = Math.floor(pickaxe.price)
+        document.getElementById('pickaxes').innerHTML = (pickaxe.quantity)
+        document.getElementById('pickaxesXRocks').innerHTML = (pickaxe.quantity * pickaxe.multiplier)
+        updatePage()
     }
     else {
-        sweetAlert()
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
     }
-    document.getElementById('pickaxes').innerHTML = (pickaxe.quantity)
-    document.getElementById('pickaxesXRocks').innerHTML = (pickaxe.quantity * pickaxe.multiplier)
-    updatePage()
+
 }
 function buyRover() {
     const rover = automaticUpgrades.find(upgrade => upgrade.name == 'rover')
@@ -78,13 +91,19 @@ function buyRover() {
         rover.quantity++
         rover.price *= 1.25
         rover.price = Math.floor(rover.price)
+        document.getElementById('rovers').innerHTML = (rover.quantity)
+        document.getElementById('roversXRocks').innerHTML = (rover.quantity * rover.multiplier)
+        updatePage()
     }
     else {
-        sweetAlert()
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
     }
-    document.getElementById('rovers').innerHTML = (rover.quantity)
-    document.getElementById('roversXRocks').innerHTML = (rover.quantity * rover.multiplier)
-    updatePage()
+
 }
 function buyBullDozer() {
     const bulldozer = automaticUpgrades.find(upgrade => upgrade.name == 'bulldozer')
@@ -93,13 +112,20 @@ function buyBullDozer() {
         bulldozer.quantity++
         bulldozer.price *= 1.25
         bulldozer.price = Math.floor(bulldozer.price)
+        document.getElementById('bullDozers').innerHTML = (bulldozer.quantity)
+        document.getElementById('bullDozersXRocks').innerHTML = (bulldozer.quantity * bulldozer.multiplier)
+        updatePage()
     }
     else {
-        sweetAlert()
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
     }
-    document.getElementById('bullDosers').innerHTML = (bulldozer.quantity)
-    document.getElementById('bullDosersXRocks').innerHTML = (bulldozer.quantity * bulldozer.multiplier)
-    updatePage()
+
+
 }
 
 // NOTE Rocks for clicking
@@ -126,14 +152,27 @@ function callAutomaticUpgradeMultiplier() {
 }
 
 // NOTE Updating the screen
-function logUpgradePrices() {
+function updateUpgradePrices() {
     clickUpgrades.forEach(upgrade => {
         document.getElementById(`${upgrade.name}Price`).innerHTML = Math.floor(upgrade.price)
-        // rocksPerClick += (upgrade.multiplier * upgrade.quantity)
-        // document.getElementById
+
     })
     automaticUpgrades.forEach(upgrade => {
         document.getElementById(`${upgrade.name}Price`).innerHTML = Math.floor(upgrade.price)
+    })
+}
+function updateRocksPerClick() {
+    let rocksPerClick = 1
+    clickUpgrades.forEach(upgrade => {
+        rocksPerClick += (upgrade.multiplier * upgrade.quantity)
+        document.getElementById(`rocksPerClick`).innerHTML = rocksPerClick
+    })
+}
+function updateRocksPer3s() {
+    let rocksPer3s = 0
+    automaticUpgrades.forEach(upgrade => {
+        rocksPer3s += (upgrade.multiplier * upgrade.quantity)
+        document.getElementById(`rocksPer3s`).innerHTML = rocksPer3s
     })
 }
 function updateMoonRocksTotal() {
@@ -141,7 +180,9 @@ function updateMoonRocksTotal() {
 }
 function updatePage() {
     updateMoonRocksTotal()
-    logUpgradePrices()
+    updateUpgradePrices()
+    updateRocksPerClick()
+    updateRocksPer3s()
 }
 
 
