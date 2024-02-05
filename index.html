@@ -19,22 +19,32 @@
 
 <body>
     <header class="container-fluid mt-2 p-0 text-center">
-        <h1 class="mainFontStyle1" style="font-size: 6em;">Moon Miners</h1>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="mainFontStyle1" style="font-size: 6em;">Moon Miners</h1>
+            </div>
+        </div>
     </header>
-    <main class="container-fluid mainFontStyle2">
-        <div class="row align-content-center justify-content-center" style="height: 35vh;">
-            <div class="col-12 -d-flex text-center">
+
+    <!-- NOTE MOON/Button -->
+    <main class="container-fluid">
+        <div class="row align-content-center justify-content-center">
+            <div class="col-12 -d-flex text-center mb-3">
                 <img onclick="mineMoon()" class="rounded-circle moonButton" type="button" src="assets/moon.png"
                     alt="Moon" style="width: 20em;">
             </div>
         </div>
-        <div class=" row justify-content-center align-content-center m-0 p-0 ">
+    </main>
+
+    <footer class="fixed-bottom mainFontStyle2">
+        <!-- NOTE Rocks and Rocks multiplier totals -->
+        <div class=" row justify-content-center align-content-center m-0 p-0  ">
             <div class=" col-3 mt-3 pt-3 bg-main align-content-center ">
                 <h5 class=" bg-black rounded border border-primary p-2 mt-0">Moon Rocks Per Click: <span
                         id="rocksPerClick"></span>
                 </h5>
             </div>
-            <div class="col-3 m-0 pt-3  bg-main rounded-top">
+            <div class="col-3 m-0 pt-3 bg-main rounded-top">
                 <h2 class="bg-black rounded border border-primary p-2 mt-0">Moon Rocks: <span id="moonRocks"></span>
                 </h2>
             </div>
@@ -45,103 +55,135 @@
             </div>
         </div>
 
-        </div>
-        <div class="row justify-content-center mainFontStyle2">
-            <div class="col-5 m-0 p-2 bg-main rounded-start ">
-                <div class="row p-2 ">
+        <!-- NOTE Upgrades and Stats -->
+        <div class="row justify-content-evenly mainFontStyle2 bg-main">
+            <div class="col-5">
+                <div class="row justify-content-evenly">
+                    <div class="col-5 my-5 p-2 whiteBorderShadow">
+                        <div class="row m-0 p-2 ">
 
-                    <div class="col-6 ms-2 p-0 d-flex ">
-                        <h4 class=" rounded p-1">Click Upgrades</h4>
+                            <div class="col-12 m-0 p-0 d-flex justify-content-center">
+                                <h4 class=" rounded">Click Upgrades</h4>
+                            </div>
+
+                            <div class="col-12 my-1 d-flex">
+                                <button onclick="buyShovel()"
+                                    class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Shovel
+                                    (Price: <span id="shovelPrice"></span>)
+                                </button>
+                            </div>
+
+                            <div class="col-12 my-1 d-flex">
+                                <button onclick="buyPickaxe()"
+                                    class="btn btn-primary bg-black  p-2 ml-3 mainFontStyle2">Pickaxe
+                                    (Price: <span id="pickaxePrice">0</span>)
+                                </button>
+                            </div>
+
+                        </div>
                     </div>
 
-                    <div class="col-5 ms-2 p-0 d-flex rounded-top-left">
-                        <h4 class="rounded p-1">Automatic Upgrades</h4>
+                    <!-- NOTE Click Stats -->
+                    <div class="col-5 my-5 p-2 whiteBorderShadow">
+                        <div class="row d-flex flex-column m-0 p-0">
+
+                            <div class="col-12 m-0 p-0 d-flex justify-content-center">
+                                <h4 class="rounded py-1">Click Stats</h4>
+                            </div>
+
+                            <!-- NOTE Shovels -->
+                            <div class="col-12 d-flex my-1">
+                                <p>
+                                    <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                            id="shovels">0</span></span> Shovels
+                                </p>
+                                <p>
+                                    <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
+                                        class="bg-black rounded border border-primary p-2">0</span>
+                                </p>
+                            </div>
+                            <!-- NOTE Pickaxes -->
+                            <div class="col-12 d-flex my-1">
+                                <p>
+                                    <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                            id="pickaxes">0</span></span>
+                                    <span></span> Pickaxes
+                                </p>
+                                <p>
+                                    <i class="mdi mdi-arrow-right-thick"></i><span id="pickaxesXRocks"
+                                        class="bg-black rounded border border-primary p-2">0</span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-6 my-1"><button onclick="buyShovel()"
-                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Shovel (Price: <span
-                                id="shovelPrice"></span>)</button></div>
-
-                    <div class="col-6 my-1"><button onclick="buyRover()"
-                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Rover
-                            (Price: <span id="roverPrice"></span>)</button></div>
-
-                    <div class="col-6 my-1"><button onclick="buyPickaxe()"
-                            class="btn btn-primary bg-black  p-2 ml-3 mainFontStyle2">Pickaxe (Price: <span
-                                id="pickaxePrice">0</span>)</button></div>
-
-                    <div class="col-6 my-1"><button onclick="buyBullDozer()"
-                            class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Bulldozer (Price: <span
-                                id="bulldozerPrice"></span>)</button></div>
-
                 </div>
             </div>
-            <div class="col-5 m-0 p-2 bg-main rounded-end mainFontStyle2">
-                <div class="row p-2 ">
+            <div class="col-5">
+                <div class="row justify-content-evenly">
+                    <!-- NOTE Automatic Upgrades -->
+                    <div class="col-5 my-5 p-2 whiteBorderShadow">
+                        <div class="row m-0 p-2">
 
-                    <div class="col-6 d-flex mb-2">
-                        <h4 class="rounded p-1">Click Stats</h4>
-                    </div>
+                            <div class="col-12 d-flex m-0 p-0 justify-content-center">
+                                <h4 class="rounded m-0 p-0">Automatic Upgrades</h4>
+                            </div>
 
-                    <div class="col-6 d-flex mb-2 rounded-top-left">
-                        <h4 class="rounded p-1">Automatic Stats</h4>
-                    </div>
-                    <!-- NOTE Shovels -->
-                    <div class="col-6 d-flex my-1">
-                        <p>
-                            <span class="bg-black rounded border border-primary p-2">Qty: <span
-                                    id="shovels">0</span></span> Shovels
-                        </p>
-                        <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="shovelsXRocks"
-                                class="bg-black rounded border border-primary p-2">0</span>
-                        </p>
-                    </div>
-                    <!-- NOTE Rovers -->
-                    <div class="col-6 d-flex my-1">
-                        <p>
-                            <span class="bg-black rounded border border-primary p-2">Qty: <span
-                                    id="rovers">0</span></span>
-                            Rovers
-                        </p>
-                        <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="roversXRocks"
-                                class="bg-black rounded border border-primary p-2">0</span>
-                        </p>
-                    </div>
-                    <!-- NOTE Pickaxes -->
-                    <div class="col-6 d-flex my-1">
-                        <p>
-                            <span class="bg-black rounded border border-primary p-2">Qty: <span
-                                    id="pickaxes">0</span></span>
-                            <span></span> Pickaxes
-                        </p>
-                        <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="pickaxesXRocks"
-                                class="bg-black rounded border border-primary p-2">0</span>
-                        </p>
-                    </div>
-                    <!-- NOTE Bulldozers -->
-                    <div class="col-6 d-flex my-1">
-                        <p>
-                            <span class="bg-black rounded border border-primary p-2">Qty: <span
-                                    id="bullDozers">0</span></span>
-                            </span> Bulldozers
-                        </p>
-                        <p>
-                            <i class="mdi mdi-arrow-right-thick"></i><span id="bullDozersXRocks"
-                                class="bg-black rounded border border-primary p-2">0</span>
-                        </p>
+                            <div class="col-12 my-2 justify-content-center">
+                                <button onclick="buyRover()"
+                                    class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Rover
+                                    (Price: <span id="roverPrice"></span>)
+                                </button>
+                            </div>
+                            <div class="col-12 my-1 justify-content-center">
+                                <button onclick="buyBullDozer()"
+                                    class="btn btn-primary bg-black p-2 ml-3 mainFontStyle2">Bulldozer (Price: <span
+                                        id="bulldozerPrice"></span>)
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- NOTE Automatic Stats -->
+                    <div class="col-5 my-5 p-2 whiteBorderShadow">
+                        <div class="row m-0 p-2">
+
+                            <div class="col-12 d-flex mb-0 p-0 rounded-top-left justify-content-center">
+                                <h4 class="rounded p-0">Automatic Stats</h4>
+                            </div>
+
+                            <!-- NOTE Rovers -->
+                            <div class="col-12 d-flex my-1">
+                                <p>
+                                    <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                            id="rovers">0</span></span>
+                                    Rovers
+                                </p>
+                                <p>
+                                    <i class="mdi mdi-arrow-right-thick"></i><span id="roversXRocks"
+                                        class="bg-black rounded border border-primary p-2">0</span>
+                                </p>
+                            </div>
+
+                            <!-- NOTE Bulldozers -->
+                            <div class="col-12 d-flex my-1">
+                                <p>
+                                    <span class="bg-black rounded border border-primary p-2">Qty: <span
+                                            id="bullDozers">0</span></span>
+                                    </span> Bulldozers
+                                </p>
+                                <p>
+                                    <i class="mdi mdi-arrow-right-thick"></i><span id="bullDozersXRocks"
+                                        class="bg-black rounded border border-primary p-2">0</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-
-    </main>
-    <footer>
     </footer>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
