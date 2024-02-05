@@ -12,7 +12,26 @@ let clickUpgrades = [
         price: 500,
         quantity: 0,
         multiplier: 5,
+    },
+    {
+        name: 'jackHammer',
+        price: 3000,
+        quantity: 0,
+        multiplier: 15,
+    },
+    {
+        name: 'dynamite',
+        price: 25000,
+        quantity: 0,
+        multiplier: 45,
+    },
+    {
+        name: 'mechSuit',
+        price: 110000,
+        quantity: 0,
+        multiplier: 120,
     }
+
 ]
 
 let automaticUpgrades = [
@@ -26,8 +45,26 @@ let automaticUpgrades = [
         name: 'bulldozer',
         price: 12000,
         quantity: 0,
-        multiplier: 500,
-    }
+        multiplier: 300,
+    },
+    {
+        name: 'mine',
+        price: 35000,
+        quantity: 0,
+        multiplier: 1000,
+    },
+    {
+        name: 'factory',
+        price: 80000,
+        quantity: 0,
+        multiplier: 15000,
+    },
+    {
+        name: 'civilization',
+        price: 600000,
+        quantity: 0,
+        multiplier: 45000,
+    },
 ]
 
 
@@ -84,6 +121,71 @@ function buyPickaxe() {
     }
 
 }
+function buyDynamite() {
+    const dynamite = clickUpgrades.find(upgrade => upgrade.name == 'dynamite')
+    if (moonRocksTotal >= dynamite.price) {
+        moonRocksTotal -= dynamite.price
+        dynamite.quantity++
+        dynamite.price *= 1.25
+        dynamite.price = Math.floor(dynamite.price)
+        document.getElementById('dynamites').innerHTML = (dynamite.quantity)
+        document.getElementById('dynamitesXRocks').innerHTML = (dynamite.quantity * dynamite.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+}
+function buyJackHammer() {
+    const jackHammer = clickUpgrades.find(upgrade => upgrade.name == 'jackHammer')
+    if (moonRocksTotal >= jackHammer.price) {
+        moonRocksTotal -= jackHammer.price
+        jackHammer.quantity++
+        jackHammer.price *= 1.25
+        jackHammer.price = Math.floor(jackHammer.price)
+        document.getElementById('jackHammers').innerHTML = (jackHammer.quantity)
+        document.getElementById('jackHammersXRocks').innerHTML = (jackHammer.quantity * jackHammer.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+}
+function buyMechSuit() {
+    const mechSuit = clickUpgrades.find(upgrade => upgrade.name == 'mechSuit')
+    if (moonRocksTotal >= mechSuit.price) {
+        moonRocksTotal -= mechSuit.price
+        mechSuit.quantity++
+        mechSuit.price *= 1.25
+        mechSuit.price = Math.floor(mechSuit.price)
+        document.getElementById('mechSuits').innerHTML = (mechSuit.quantity)
+        document.getElementById('mechSuitsXRocks').innerHTML = (mechSuit.quantity * mechSuit.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+}
+
+
 function buyRover() {
     const rover = automaticUpgrades.find(upgrade => upgrade.name == 'rover')
     if (moonRocksTotal >= rover.price) {
@@ -127,6 +229,75 @@ function buyBullDozer() {
 
 
 }
+function buyMine() {
+    const mine = automaticUpgrades.find(upgrade => upgrade.name == 'mine')
+    if (moonRocksTotal >= mine.price) {
+        moonRocksTotal -= mine.price
+        mine.quantity++
+        mine.price *= 1.25
+        mine.price = Math.floor(mine.price)
+        document.getElementById('mines').innerHTML = (mine.quantity)
+        document.getElementById('minesXRocks').innerHTML = (mine.quantity * mine.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+
+}
+function buyFactory() {
+    const factory = automaticUpgrades.find(upgrade => upgrade.name == 'factory')
+    if (moonRocksTotal >= factory.price) {
+        moonRocksTotal -= factory.price
+        factory.quantity++
+        factory.price *= 1.25
+        factory.price = Math.floor(factory.price)
+        document.getElementById('factorys').innerHTML = (factory.quantity)
+        document.getElementById('factorysXRocks').innerHTML = (factory.quantity * factory.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+
+}
+function buyCivilization() {
+    const civilization = automaticUpgrades.find(upgrade => upgrade.name == 'civilization')
+    if (moonRocksTotal >= civilization.price) {
+        moonRocksTotal -= civilization.price
+        civilization.quantity++
+        civilization.price *= 1.25
+        civilization.price = Math.floor(civilization.price)
+        document.getElementById('civilizations').innerHTML = (civilization.quantity)
+        document.getElementById('civilizationsXRocks').innerHTML = (civilization.quantity * civilization.multiplier)
+        updatePage()
+    }
+    else {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Sorry Dude, you don't have enough resources 😒",
+            showConfirmButton: false,
+        });
+    }
+
+
+}
+
+
+
 
 // NOTE Rocks for clicking
 function callClickUpgrades() {
