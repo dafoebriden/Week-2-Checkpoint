@@ -27,36 +27,44 @@
     </header>
 
     <!-- NOTE MOON/Button -->
-    <main class="container-fluid" style="z-index: 1;">
+    <main class="container-fluid" style="z-index: 1; position: absolute;">
         <div class="row align-content-center justify-content-center">
-            <div class="col-12 -d-flex text-center mb-3">
-                <img onclick="mineMoon()" class="rounded-circle moonButton" type="button" src="assets/moon.png"
-                    alt="Moon" style="height: 30vh;">
-            </div>
+
         </div>
     </main>
 
     <footer class="container-fluid fixed-bottom mainFontStyle2 m-0 p-0">
         <!-- NOTE Rocks and Rocks multiplier totals -->
-        <div class=" row m-0 p-0 " style="z-index: -1;">
-            <div class=" col-4 bg-black whiteBorderShadowNoRadius">
-                <div class="row" ">
-                <div class=" col-12 m-0 pt-4 bg-main">
-                    <h2 class=" rounded border border-primary p-2 m-0">Moon Rocks: <span id="moonRocks"></span>
-                    </h2>
-                </div>
-                <div class=" col-12 m-0 pt-3 bg-main align-content-center ">
-                    <h5 class="  rounded border border-primary p-2 m-0">Moon Rocks Per Click: <span
-                            id="rocksPerClick"></span>
-                    </h5>
-                </div>
+        <div class=" row m-0 p-0 align-items-end">
+            <div class=" col-3 bg-black d-flex align-items-end whiteBorderShadowNoRadius" style="max-height: 14em;">
+                <div class="row">
+                    <div class=" col-12 m-0 pt-4 bg-main">
+                        <h2 class=" rounded border border-primary p-2 m-0">Moon Rocks: <span id="moonRocks"></span>
+                        </h2>
+                    </div>
+                    <div class=" col-12 m-0 pt-3 bg-main align-content-center ">
+                        <h5 class="  rounded border border-primary p-2 m-0">Moon Rocks Per Click: <span
+                                id="rocksPerClick"></span>
+                        </h5>
+                    </div>
 
-                <div class="col-12 m-0 py-3 bg-main">
-                    <h5 class=" rounded border border-primary p-2 m-0">Moon Rocks Per 3s: <span id="rocksPer3s"></span>
-                    </h5>
+                    <div class="col-12 m-0 py-3 bg-main">
+                        <h5 class=" rounded border border-primary p-2 m-0">Moon Rocks Per 3s: <span
+                                id="rocksPer3s"></span>
+                        </h5>
+                    </div>
                 </div>
             </div>
-        </div>
+
+
+            <div class="col-6">
+                <div class="col-12 -d-flex text-center mb-5">
+                    <img onclick="mineMoon()" class="rounded-circle moonButton" type="button" src="assets/moon.png"
+                        alt="Moon" style="height: 30vh;">
+                </div>
+            </div>
+
+
         </div>
         <!-- NOTE Upgrades and Stats -->
         <div class="row justify-content-evenly mainFontStyle2 bg-main whiteBorderShadowNoRadius">
